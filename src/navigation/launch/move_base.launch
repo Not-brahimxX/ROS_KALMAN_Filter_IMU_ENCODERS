@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<launch>
+
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <remap from="scan" to="/scan" />    
+    <rosparam file="$(find navigation)/config/costmap_common_params_waffle.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find navigation)/config/costmap_common_params_waffle.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find navigation)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find navigation)/config/global_costmap_params.yaml" command="load" /> 
+    <rosparam file="$(find navigation)/config/costmap_converter_params.yaml" command="load" /> 
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <!-- Load TEB local planner parameters -->
+    <rosparam file="$(find navigation)/config/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find navigation)/config/move_base_params.yaml" command="load" />    
+ </node>
+ 
+   <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <rosparam file="$(find navigation)/config/amcl_params.yaml" command="load" />
+    <param name="initial_pose_x"            value="0"/>
+    <param name="initial_pose_y"            value="0"/>
+    <param name="initial_pose_a"            value="0"/>
+ </node>
+
+</launch> 

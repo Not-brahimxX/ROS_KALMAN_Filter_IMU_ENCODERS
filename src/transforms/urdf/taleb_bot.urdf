@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot
+  name="taleb_bot">
+  
+  
+  <!-- Base link -->
+  
+  <link
+    name="base_link">
+    <visual>
+      <origin xyz="1 1 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  
+  
+  <!-- IMU link -->
+
+
+
+<!-- 
+ <link
+    name="imu_link">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint> -->
+  
+
+
+   <!-- right wheel link -->
+  
+  
+  <link
+    name="link_right_wheel">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/link_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/link_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  
+  
+   <!-- right wheel joint -->
+  
+  
+  <joint
+    name="joint_right_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_right_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1.3729"
+      velocity="34.548" />
+  </joint>
+  
+  
+   <!-- left wheel link -->
+  
+  
+  <link name="link_left_wheel">
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/link_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/link_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  
+   <!-- left wheel joint-->
+  
+  
+  <joint
+    name="joint_left_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.00042514 0.23544 0"
+      rpy="0 0.55241 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_left_wheel" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="1.3729"
+      velocity="34.548" />
+  </joint>
+  
+  
+   <!-- caster wheel link -->
+  
+  
+  <link
+    name="caster_wheel_link">
+   
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/caster_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.94902 0.89804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/caster_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+   <!-- caster wheel joint -->
+  
+  
+  <joint
+    name="caster_wheel_joint"
+    type="fixed">
+    <origin
+      xyz="0.15851 0.11672 -0.0057785"
+      rpy="-0.016648 0.0072064 -1.1623" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_wheel_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+   <!-- cylinders -->
+  
+  
+  <link
+    name="para_cyl_link">
+   
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/para_cyl_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/para_cyl_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  
+ 
+   <!-- cylinders joint -->
+  
+  
+  
+  <joint
+    name="para_cyl_joint"
+    type="fixed">
+    <origin
+      xyz="0.048315 0.14665 0.056186"
+      rpy="0 1.5527 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="para_cyl_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  
+  
+   <!-- where the lidar is placed-->
+  
+  
+  <link
+    name="lidar_alm_link">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/lidar_alm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://transforms/meshes/lidar_alm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+   <!-- The joint -->
+  
+  <joint
+    name="lidar_alm_joint"
+    type="fixed">
+    <origin
+      xyz="-0.04 0.029 0.03"
+      rpy="0 0 1.5708" />
+    <parent
+      link="para_cyl_link" />
+    <child
+      link="lidar_alm_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

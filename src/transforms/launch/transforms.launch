@@ -1,0 +1,16 @@
+<launch>
+  <node name="odom_listener" pkg="transforms" type="odom_listener.py" />
+  <node name="odom_transformer" pkg="transforms" type="odom_transformer.py" />
+  <!-- <node name="imu_transformer" pkg="transforms" type="imu_transformer.py" /> -->
+
+  <arg name="model" />
+  <param name="robot_description" textfile="$(find transforms)/urdf/taleb_bot.urdf" />
+  <!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="world_frame" value="map"/>
+  </node>
+
+
+</launch>
+

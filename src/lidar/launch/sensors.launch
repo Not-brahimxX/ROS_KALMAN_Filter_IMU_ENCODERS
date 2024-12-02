@@ -1,0 +1,21 @@
+<launch>
+    <!-- <include file="$(find ydlidar_ros_driver)/launch/X4.launch" /> -->
+
+   <node pkg="rosserial_arduino" type="serial_node.py" name="my_serial_node">
+        <param name="port" value="/dev/ttyUSB1"/>
+        <param name="baud" value="57600"/>
+        <param name="serial_buffer_size" value="1024"/>
+    </node>
+
+  
+
+    <node name="rplidarNode" pkg="rplidar_ros" type="rplidarNode">
+        <param name="serial_port" type="string" value="/dev/rplidar"/>
+        <param name="serial_baudrate" type="int" value="115200"/>
+        <param name="frame_id" type="string" value="laser_frame"/>
+        <param name="inverted" type="bool" value="false"/>
+        <param name="angle_compensate" type="bool" value="true"/>
+    </node>
+
+</launch>
+  

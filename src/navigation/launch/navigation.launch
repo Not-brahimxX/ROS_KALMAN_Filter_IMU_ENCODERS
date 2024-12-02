@@ -1,0 +1,13 @@
+<launch>
+  <include file="$(find navigation)/launch/move_base.launch"/>
+
+  <!-- Launch the map server to publish the map -->
+  <arg name="map_file" default="$(find navigation)/maps/maps.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find navigation)/maps/maps.yaml">
+    <param name="initial_pose_x" value="0"/>
+    <param name="initial_pose_y" value="0"/>
+    <param name="initial_pose_yaw" value="0"/>
+  </node>
+  
+  <include file="$(find navigation)/launch/ekf.launch"/>
+</launch> 

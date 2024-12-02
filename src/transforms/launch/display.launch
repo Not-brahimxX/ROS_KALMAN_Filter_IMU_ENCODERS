@@ -1,0 +1,12 @@
+<!-- <launch>
+  <node name="rviz" pkg="rviz" type="rviz" output="screen">
+    <param name="rviz/config" value="$(find transforms)/rviz/visualization.rviz"/>
+    <param name="rviz/autostart" value="true"/>
+    <param name="rviz/required" value="false"/>
+  </node>
+</launch> -->
+
+
+<launch>
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find transforms)/rviz/visualization.rviz"/>
+</launch>

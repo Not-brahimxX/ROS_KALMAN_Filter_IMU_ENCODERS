@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+
+import time
+import rospy
+import Jetson.GPIO as GPIO
+from rosnode import rosnode_ping_all, kill_nodes
+import roslaunch
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(22, GPIO.IN)
+
+def launch_robot():
+    uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
+    roslaunch.configure_logging(uuid)
+    launch = roslaunch.parent.ROSLaunchParent(
+        uuid, ['/home/jetson/eurobot_ws/src/launcher/launch/robot.launch'])
+    launch.start()
+
+def kill_robot():
+    node_list = rosnode_ping_all()
+    for node in node_list:
+        kill_nodes(node)
+
+def launch_node():
+    rospy.init_node('launch_node')
+    prev_input = 1 # Initialize to the opposite of the current input
+    try:
+        while True:
+            input = GPIO.input(22)
+            if input == 0 and prev_input == 1:
+                launch_robot()
+            elif input == 1 and prev_input == 0:
+                kill_robot()
+            prev_input = input
+            time.sleep(0.01) # Add a small delay to reduce CPU usage
+    except KeyboardInterrupt:
+        GPIO.cleanup() # Clean up GPIO on program exit
+
+if __name__ == '__main__':
+    launch_node()

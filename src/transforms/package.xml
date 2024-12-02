@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>transforms</name>
+  <version>0.0.0</version>
+  <description>The transforms package</description>
+
+  <maintainer email="nadhir@todo.todo">nadhir</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>joint_state_publisher</build_depend>
+  <build_depend>robot_localization</build_depend>
+  <build_depend>robot_state_publisher</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>rosserial_python</build_depend>
+  <build_depend>rviz</build_depend>
+  <build_depend>actionlib</build_depend>  <!-- Add this line for actionlib -->
+  <build_depend>move_base_msgs</build_depend>  <!-- Add this line for move_base_msgs -->
+  <build_export_depend>joint_state_publisher</build_export_depend>
+  <build_export_depend>robot_localization</build_export_depend>
+  <build_export_depend>robot_state_publisher</build_export_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>rosserial_python</build_export_depend>
+  <build_export_depend>rviz</build_export_depend>
+  <build_export_depend>actionlib</build_export_depend>  <!-- Add this line for actionlib -->
+  <build_export_depend>move_base_msgs</build_export_depend>  <!-- Add this line for move_base_msgs -->
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_localization</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>rosserial_python</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>actionlib</exec_depend>  <!-- Add this line for actionlib -->
+  <exec_depend>move_base_msgs</exec_depend>  <!-- Add this line for move_base_msgs -->
+
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>
+
